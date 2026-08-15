@@ -38,4 +38,18 @@ print(f"Array shape for tslearn: {returns_array.shape}")
 dtw_dist = cdist_dtw(returns_array)
 
 
+for k in range(2,6):
+
+    model = TimeSeriesKmeans(n_clusters = 3, metric = "dtw", n_init = 10, random_state = 42)
+
+    #5B fit and predict and assigns each stock to a cluster
+    labels = model.fit_predict(returns_array)
+
+    # the silhouette score is a measure of how similar an object is to its own cluster compared to other clusters. It ranges from -1 to 1, where a high value indicates that the object is well matched to its own cluster and poorly matched to neighboring clusters.
+    #  It measures how well each stock fits into its assigned cluster compared to other clusters.
+    # the precomputed metric means that we are using the DTW distance matrix we computed earlier instead of calculating distances again.
+    score = silhouette_score(dtw_dist, labels, metric = "precomputed")
+
+    print(f"Silhouette score for k={k}: {score:.4f}")
+
 
