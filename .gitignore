@@ -1,3 +1,7 @@
+# Personal / private
+# Private notes — keep out of version control
+mini_projects/silhouette_notes.md
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
