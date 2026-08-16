@@ -106,6 +106,11 @@ def main():
 
 
 
+# testing the processing file
+
+if __name__ == "__main__":
+    main()
+
 
 
 
