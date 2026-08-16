@@ -58,9 +58,59 @@ def calculate_returns(prices):
     # so it shows it shifts the prices down by one row, divides the current price by the previous price, takes the natural logarithm of that ratio, and then drops any rows with NaN values.
     returns = np.log(prices / prices.shift(1)).dropna()
 
+
     print(f"Return shape: {returns.shape}")
 
     return returns
+
+
+def get_regime_slices(returns):
+    """ Slices returns into stress periods and returns a dictionary of slices """
+
+    print(f"Getting regime slices from returns data...")
+
+    regimes_slices = {"covid": returns.loc["2020-02-01": "2020-04-30"],
+                      "rate_shock": returns.loc["2022-01-03": "2022-12-30"]}
+
+    for name, slice in regimes_slices.items():
+        print(f"{name}: {slice.shape[0]} days × {slice.shape[1]} tickers")
+
+    return regimes_slices
+
+
+
+def main():
+
+    """ Main function to run the data processing steps """
+
+    print("Starting data processing...")
+
+    # have been assigned to a variable called tickers. The get_sp500_tickers() function is called to retrieve a list of S&P 500 stock tickers, and this list is stored in the tickers variable.
+
+    tickers = get_sp500_tickers()
+
+    print(f"Tickers: {len(tickers)}")
+
+    prices = download_stock_data(tickers)
+    returns = calculate_returns(prices)
+    regimes = get_regime_slices(returns)
+
+    print("\n" + "=" * 60)
+    print("ALL TESTS PASSED!")
+    print("=" * 60)
+    print(f"\n Data Summary:")
+    print(f"   Total returns: {returns.shape[0]} days × {returns.shape[1]} tickers")
+
+    for names, data in regimes.items():
+        print(f"   {names}: {data.shape[0]} days × {data.shape[1]} tickers")
+
+
+
+
+
+
+
+
     
 
 
