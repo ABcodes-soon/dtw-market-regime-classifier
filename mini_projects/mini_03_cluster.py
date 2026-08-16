@@ -7,7 +7,8 @@ from sklearn.metrics import silhouette_score
 
 
 # Use yfinance to download historical stock data for a list of tickers
-tickers = ["AAPL", "MSFT", "GOOGL", "AMZN", "META", "TSLA", "NVDA", "JPM", "V", "JNJ"]
+tickers = ["AAPL", "MSFT", "GOOGL", "AMZN", "META", 
+            "XOM", "CVX", "COP", "SLB", "BP"]
 
 print("Downloading historical stock data...")
 
@@ -41,7 +42,7 @@ scores = {}
 # its a dictionary to store the silhouette scores for different values of k (number of clusters). The keys are the values of k, and the values are the corresponding silhouette scores.
 for k in range(2,6):
 
-    model = TimeSeriesKmeans(n_clusters = k, metric = "dtw", n_init = 10, random_state = 42)
+    model = TimeSeriesKMeans(n_clusters = k, metric = "dtw", n_init = 10, random_state = 42)
 
     #5B fit and predict and assigns each stock to a cluster
     labels = model.fit_predict(returns_array)
@@ -62,7 +63,7 @@ for k in range(2,6):
 best_k = max(scores, key = scores.get)
 print(f"\n🌟 Optimal K: {best_k} (silhouette={scores[best_k]:.4f})")
 
-model = TimeSeriesKmeans(n_clusters = k, metric = "dtw", n_init = 10, random_state = 42)
+model = TimeSeriesKMeans(n_clusters = best_k, metric = "dtw", n_init = 10, random_state = 42)
 final_labels = model.fit_predict(returns_array)
 
 
