@@ -104,6 +104,8 @@ def main():
     for names, data in regimes.items():
         print(f"   {names}: {data.shape[0]} days × {data.shape[1]} tickers")
 
+    return returns, regimes
+
 
 
 # testing the processing file
