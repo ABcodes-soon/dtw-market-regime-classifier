@@ -90,10 +90,24 @@ def calculate_one_in_sharp(returns):
 
 
 
-# matches the different comparsions table
+# matches the different comparsions table and will build the table
 def build_comparison_table(dtw_metrics, pearson_metrics, one_n_shape):
 
     dtw_best = max(dtw_metrics, key = lambda x: dtw_metrics[x]['sharpe'])
+    # this will basically use key to value pairs and  and the key finds the highest value from the key function for sharpe.
+
+    pearson_best = max(pearson_metrics, key = lambda x: pearson_metrics[x]['sharpe'])
+
+    # use that key to value pairs and means  it will use dtw and pearson metric format.
+
+    table = pd.DataFrame({ 'Method': ['DTW + HRP', 'Pearson + HRP', '1/N'], 
+                          'Sharpe Ratio': [dtw_metrics[dtw_best]['sharpe'], pearson_metrics[pearson_best]['sharpe'], one_n_shape],
+                          'Mean Return': [dtw_metrics[dtw_best]['mean_return'], pearson_metrics[pearson_best]['mean_return'], None],
+                          'Volatility': [dtw_metrics[dtw_best]['volatility'], pearson_metrics[pearson_best]['volatility'], None],
+                          'Max Drawdown': [dtw_metrics[dtw_best]['max_drawdown'], pearson_metrics[pearson_best]['max_drawdown'], None]
+
+    })
+    return table
 
 ##### Pause ######
 
