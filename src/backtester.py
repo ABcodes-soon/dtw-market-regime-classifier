@@ -29,11 +29,11 @@ def evaluate_portfolio(returns, labels):
         # so basically find for each cluster and assign a label for each value
 
         cluster_returns = returns.iloc[:, tickers_in_cluster]
-        # finds the all of the rows and 
+        # finds the all of the rows and finds the column for just that.
 
         # find the cluster average
         cluster_avg = cluster_returns.mean(axis = 1)
-        # average returns of stocks in cluster and thi is horizontal anf finds the average.
+        # average returns of stocks in cluster and this is horizontal anf finds the average.
 
         sharpe = calculate_sharpe(cluster_avg)
 
@@ -46,6 +46,7 @@ def evaluate_portfolio(returns, labels):
 
         # make a dictionary
         metrics[each_cluster] = {
+
             'sharpe': sharpe,
             'mean_return': mean_return,
             'volatility': volatility,
@@ -62,7 +63,7 @@ def compare_dtw_vs_pearson(dtw_returns, pearson_returns):
     """Compares the DTW vs Pearson methods works"""
 
     """ The Independent T test compares DTW vs pearson. """
-    
+
     """     Part	What It Does
     stats.ttest_ind()	Independent t-test — compares two groups
     dtw_returns	Group 1 (DTW strategy)
@@ -73,6 +74,29 @@ def compare_dtw_vs_pearson(dtw_returns, pearson_returns):
     t_stat, p_value = stats.ttest_ind(dtw_returns, pearson_returns)
 
     return t_stat, p_value
+
+
+# This is the benchmark 1/N weight to make sure every stock gets equal weight
+
+def calculate_one_in_sharp(returns):
+    """Calculate Sharpe ration for (1/N) to make sure its equal for each """
+    """ Args: Return Dataframe (days x returns)"""
+    """ returns the Sharpe ratio """
+
+    equal_weights_returns = returns.mean(axis = 1)
+    # goes back to calculate sharpe function to find and subtracts to find the return on from the risk.
+    return calculate_sharpe(equal_weights_returns)
+
+
+
+
+# matches the different comparsions table
+def build_comparison_table(dtw_metrics, pearson_metrics, one_n_shape):
+
+    dtw_best = max(dtw_metrics, key = lambda x: dtw_metrics[x]['sharpe'])
+
+##### Pause ######
+
 
 
 
