@@ -9,6 +9,27 @@
 
 ---
 
+## 📑 Table of Contents
+
+- [TL;DR — What This Project Does](#tldr--what-this-project-does)
+- [Two versions — run either](#two-versions--run-either)
+- [Live Demo](#live-demo)
+- [Results at a Glance](#results-at-a-glance)
+- [Research Question](#research-question)
+- [Architecture](#architecture)
+- [Quick Start](#quick-start)
+- [Dashboards](#dashboards)
+- [Testing](#testing)
+- [Why This Matters](#why-this-matters)
+- [Tech Stack](#tech-stack)
+- [Learning Journey](#learning-journey)
+- [Limitations](#limitations)
+- [Contact](#contact)
+- [Acknowledgments](#acknowledgments)
+- [License](#license)
+
+---
+
 ## 🎯 TL;DR — What This Project Does
 
 Groups **50 S&P 500 stocks** by how similarly they move using **Dynamic Time Warping (DTW)** + k-means, finds optimal market **"regimes"** via a **silhouette score**, and backtests the grouping against **Pearson correlation** and an **equal-weight (1/N)** benchmark.
@@ -168,7 +189,21 @@ pytest tests/ -v
 
 ---
 
-## 📚 Learning Journey
+## �️ Tech Stack
+
+| Category | Tools |
+|---|---|
+| **Language** | Python 3.9+ |
+| **Data** | yfinance, Pandas, NumPy |
+| **Clustering** | tslearn (DTW), scikit-learn (k-means, silhouette, PCA) |
+| **Backtesting** | NumPy, SciPy (t-test) |
+| **Dashboard** | Streamlit, Plotly |
+| **Testing** | Pytest |
+| **Deployment** | Streamlit Community Cloud |
+
+---
+
+## �📚 Learning Journey
 
 Built after completing:
 
