@@ -26,7 +26,7 @@ The same study ships in **two implementations**, so you can run whichever you pr
 | `src/` | **Original** — built from scratch while learning (unbounded DTW, `n_init=10`) | many hours | `python src/backtester.py` |
 | `src_fast/` | **Optimized** — identical methodology, parallel + bounded DTW | ~15 min | `python src_fast/backtester.py` |
 
-Each version also has its own dashboard: `streamlit run dashboard_original.py` (original) or `streamlit run dashboard.py` (fast).
+Each version also has its own dashboard: `streamlit run dashboard_original.py` (original) or `streamlit run dashboard_fast.py` (fast).
 
 ---
 
@@ -40,10 +40,10 @@ Each version also has its own dashboard: `streamlit run dashboard_original.py` (
 
 1. The repo is already on GitHub: [`ABcodes-soon/dtw-market-regime-classifier`](https://github.com/ABcodes-soon/dtw-market-regime-classifier).
 2. Go to [share.streamlit.io](https://share.streamlit.io) and sign in with your GitHub account.
-3. Click **New app** → choose this repo → set **Main file** to `dashboard.py` → **Deploy**.
+3. Click **New app** → choose this repo → set **Main file** to `dashboard_fast.py` → **Deploy**.
 4. Streamlit gives you a permanent URL — keep it or update the link above.
 
-> 🔧 **Run locally instead:** `streamlit run dashboard.py` → http://localhost:8501
+> 🔧 **Run locally instead:** `streamlit run dashboard_fast.py` → http://localhost:8501
 
 ---
 
@@ -86,7 +86,7 @@ dtw-market-regime-classifier/
 ├── src_fast/                # FAST pipeline (parallel, ~15 min)
 │   └── same methodology, optimized
 │
-├── dashboard.py             # Streamlit app — FAST pipeline   (port 8501)
+├── dashboard_fast.py        # Streamlit app — FAST pipeline   (port 8501)
 ├── dashboard_original.py    # Streamlit app — ORIGINAL        (port 8502)
 │
 ├── outputs/                 # 7 result files (comparison, clusters, PCA, stress)
@@ -115,8 +115,8 @@ pip install -r requirements.txt
 # Run the fast pipeline (~15 min) — or src/backtester.py for the original
 python src_fast/backtester.py
 
-# Launch the dashboard
-streamlit run dashboard.py
+# Launch the dashboard (fast)
+streamlit run dashboard_fast.py
 ```
 
 ---
@@ -125,7 +125,7 @@ streamlit run dashboard.py
 
 | Dashboard | Purpose |
 |---|---|
-| `dashboard.py` | **FAST** pipeline — interactive results |
+| `dashboard_fast.py` | **FAST** pipeline — interactive results |
 | `dashboard_original.py` | **ORIGINAL** pipeline — same data |
 
 **Both show:**

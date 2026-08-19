@@ -1,5 +1,5 @@
 """
-dashboard.py — Market Regime Classification
+dashboard_original.py — Market Regime Classification (ORIGINAL, many hours)
 
 DTW-based clustering of 50 S&P 500 stocks (2015-2024) with a backtest
 comparison. Displays the real results saved by the backtester in outputs/,
@@ -183,7 +183,7 @@ with st.sidebar:
     st.header("Data source")
     st.caption("Results come from the latest backtest run saved in `outputs/`.")
     st.warning("This app showcases the **original** pipeline (`src/`). Live recomputing can "
-               "take **many hours** — use `dashboard.py` (fast) for live demos.")
+               "take **many hours** — use `dashboard_fast.py` (fast) for live demos.")
     run_now = st.button("Recompute with live engine", width="stretch")
     if run_now:
         st.caption("Recomputes with the original engine — this can take **hours**.")
@@ -237,7 +237,7 @@ def sharpe_of(method):
 # Page
 # ---------------------------------------------------------------------------
 st.title("Market Regime Classification")
-st.caption("Original implementation (`src/`) · DTW clustering of 50 S&P 500 stocks · 2015–2024")
+st.caption("Original implementation (many hours, `src/`) · DTW clustering of 50 S&P 500 stocks · 2015–2024")
 
 methodology()
 st.divider()

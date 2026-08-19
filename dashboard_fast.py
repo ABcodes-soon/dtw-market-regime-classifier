@@ -1,5 +1,5 @@
 """
-dashboard.py — Market Regime Classification
+dashboard_fast.py — Market Regime Classification (FAST, ~15 min)
 
 DTW-based clustering of 50 S&P 500 stocks (2015-2024) with a backtest
 comparison. Displays the real results saved by the backtester in outputs/,
@@ -239,7 +239,7 @@ def sharpe_of(method):
 # Page
 # ---------------------------------------------------------------------------
 st.title("Market Regime Classification")
-st.caption("Fast implementation (`src_fast/`) · DTW clustering of 50 S&P 500 stocks · 2015–2024")
+st.caption("Fast implementation (~15 min, `src_fast/`) · DTW clustering of 50 S&P 500 stocks · 2015–2024")
 
 methodology()
 st.divider()
