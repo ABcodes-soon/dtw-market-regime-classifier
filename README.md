@@ -59,14 +59,7 @@ Each version also has its own dashboard: `streamlit run dashboard_original.py` (
 
 **👉 Live app:** [https://dtw-market-regime-classifier-kjrfaxmnqlqy7vdwfandhg.streamlit.app](https://dtw-market-regime-classifier-kjrfaxmnqlqy7vdwfandhg.streamlit.app)
 
-> If the link isn't live yet, deploy it in ~2 minutes (free):
-
-1. The repo is already on GitHub: [`ABcodes-soon/dtw-market-regime-classifier`](https://github.com/ABcodes-soon/dtw-market-regime-classifier).
-2. Go to [share.streamlit.io](https://share.streamlit.io) and sign in with your GitHub account.
-3. Click **New app** → choose this repo → set **Main file** to `dashboard_fast.py` → **Deploy**.
-4. Streamlit gives you a permanent URL — keep it or update the link above.
-
-> 🔧 **Run locally instead:** `streamlit run dashboard_fast.py` → http://localhost:8501
+> 🖥️ Prefer to run it on your own machine? See [Quick Start](#quick-start) below.
 
 ---
 
