@@ -88,6 +88,7 @@ dtw-market-regime-classifier/
 │
 ├── dashboard_fast.py        # Streamlit app — FAST pipeline   (port 8501)
 ├── dashboard_original.py    # Streamlit app — ORIGINAL        (port 8502)
+├── run.py                   # Main entry point — python run.py (fast) / --original
 │
 ├── outputs/                 # 7 result files (comparison, clusters, PCA, stress)
 ├── tests/                   # 20/20 tests passing (both engines)
@@ -112,8 +113,11 @@ cd dtw-market-regime-classifier
 # Install
 pip install -r requirements.txt
 
-# Run the fast pipeline (~15 min) — or src/backtester.py for the original
-python src_fast/backtester.py
+# Run the FAST pipeline (~15 min) — the recommended entry point
+python run.py
+
+# ...or the ORIGINAL implementation (many hours)
+python run.py --original
 
 # Launch the dashboard (fast)
 streamlit run dashboard_fast.py
