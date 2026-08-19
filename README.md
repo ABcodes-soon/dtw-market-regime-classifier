@@ -47,6 +47,8 @@ The same study ships in **two implementations**, so you can run whichever you pr
 | `src/` | **Original** — built from scratch while learning (unbounded DTW, `n_init=10`) | many hours | `python src/backtester.py` |
 | `src_fast/` | **Optimized** — identical methodology, parallel + bounded DTW | ~15 min | `python src_fast/backtester.py` |
 
+> 💡 **Tip:** You don't need to call the backtester files directly. **`python run.py` is the single entry point** — it runs the **fast** pipeline by default, and `python run.py --original` runs the slow one. The table shows exactly which script each one wraps.
+
 Each version also has its own dashboard: `streamlit run dashboard_original.py` (original) or `streamlit run dashboard_fast.py` (fast).
 
 ---
@@ -107,8 +109,8 @@ dtw-market-regime-classifier/
 ├── src_fast/                # FAST pipeline (parallel, ~15 min)
 │   └── same methodology, optimized
 │
-├── dashboard_fast.py        # Streamlit app — FAST pipeline   (port 8501)
-├── dashboard_original.py    # Streamlit app — ORIGINAL        (port 8502)
+├── dashboard_fast.py        # Streamlit app — FAST pipeline
+├── dashboard_original.py    # Streamlit app — ORIGINAL pipeline
 ├── run.py                   # Main entry point — python run.py (fast) / --original
 │
 ├── outputs/                 # 7 result files (comparison, clusters, PCA, stress)
@@ -127,7 +129,7 @@ dtw-market-regime-classifier/
 ## 🚀 Quick Start
 
 ```bash
-# Clone
+# Clone (requires Python 3.9+)
 git clone https://github.com/ABcodes-soon/dtw-market-regime-classifier.git
 cd dtw-market-regime-classifier
 
@@ -137,11 +139,12 @@ pip install -r requirements.txt
 # Run the FAST pipeline (~15 min) — the recommended entry point
 python run.py
 
-# ...or the ORIGINAL implementation (many hours)
+# ...or the ORIGINAL implementation (many hours — only if you want to wait)
 python run.py --original
 
-# Launch the dashboard (fast)
-streamlit run dashboard_fast.py
+# Launch a dashboard
+streamlit run dashboard_fast.py        # fast pipeline
+streamlit run dashboard_original.py    # original pipeline
 ```
 
 ---
