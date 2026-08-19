@@ -17,7 +17,15 @@ Groups **50 S&P 500 stocks** by how similarly they move using **Dynamic Time War
 
 ---
 
-## 📊 Results at a Glance
+## � Live Dashboard Preview
+
+![DTW Market Regime Classifier Dashboard](images/dashboard_screenshot.png)
+
+*Interactive Streamlit dashboard showing key findings, regime selection (silhouette), and cluster composition — run it with `streamlit run dashboard.py`.*
+
+---
+
+## �📊 Results at a Glance
 
 | Method | Sharpe Ratio | Volatility | Max Drawdown |
 |--------|--------------|------------|--------------|
