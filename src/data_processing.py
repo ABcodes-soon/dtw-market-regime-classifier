@@ -5,8 +5,8 @@ import time
 
 
 
-def get_sp500_tickers():
-    """" Returns a list of S&P 500 tickers and to test with """
+def get_sp500_tickers(limit=None):
+    """ Returns a list of S&P 500 tickers and to test with """
     tickers = [
         "AAPL", "MSFT", "GOOGL", "AMZN", "META", "NVDA", "TSLA", "ADBE", "CRM", "ORCL",
         "JPM", "V", "BAC", "WFC", "C", "GS", "MS", "AXP", "MA", "PYPL",
@@ -14,7 +14,9 @@ def get_sp500_tickers():
         "XOM", "CVX", "COP", "SLB", "EOG", "OXY", "PSX", "MPC", "KMI", "WMB",
         "KO", "PEP", "COST", "WMT", "HD", "MCD", "NKE", "SBUX", "PG", "PM"
     ]
-    return tickers
+    # limit is optional: `limit=10` returns only the first 10 tickers,
+    # which makes downloads + clustering much faster for testing.
+    return tickers[:limit] if limit else tickers
 
 
 

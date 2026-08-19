@@ -1,6 +1,16 @@
+import os
+import sys
+
 import numpy as np
 import pandas as pd
 from scipy import stats  # used for the t-test p-value
+
+# Make the project root importable so `from src.data_processing import ...`
+# and `from src.clustering_engine import ...` work no matter where this script
+# is run from (same pattern already used in clustering_engine.py).
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+
 
 
 def calculate_sharpe(returns, risk_free_rate=0):
@@ -136,7 +146,7 @@ def build_comparison_table(dtw_metrics, pearson_metrics, one_n_shape):
     })
     return table
 
-##### Pause ######
+
 
 # returns the dataframe for days and tickers and cluster labels and pearson labels
 def run_complete_backtest(returns, dtw_labels, pearson_labels):
@@ -193,7 +203,8 @@ def run_complete_backtest(returns, dtw_labels, pearson_labels):
         pearson_best = max(pearson_metric, key=lambda c: pearson_metric[c]['sharpe'])
 
         # now here it the sharpe ratio change
-        if (dtw_metric[dtw_best]['Sharpe'] > pearson_metric[pearson_best]['sharpe']):
+        if (dtw_metric[dtw_best]['sharpe'] > pearson_metric[pearson_best]['sharpe']):
+            
             print("DTW preforms better than Pearson")
         else:
             print("Pearson outperforms DTW")
@@ -211,7 +222,44 @@ def run_complete_backtest(returns, dtw_labels, pearson_labels):
     }
 
 def main():
+
+    """ This is the main function"""
+    print("="* 60)
+    print("BACKTESTER")
+    print("="* 60)
+
+    # import the information 
+    from src.data_processing import main as get_data
+    from src.clustering_engine import main as cluster_info_data
+
+    # access returns
+    returns, _ = get_data()
+
+    print(f"\n Returns shape: {returns.shape}")
+
+    dtw_labels, pearson_labels, best_k, scores = cluster_info_data()
+    # we can assign the data from this
     
+    print(f"DTW labels: {dtw_labels[:10]}...")
+    print(f"Pearson labels: {pearson_labels[:10]}...")
+
+    results = run_complete_backtest(returns, dtw_labels, pearson_labels)
+
+    print("\n" + "=" * 60)
+
+    print("BACKTEST FINISHED")
+
+    print("=" * 60)
+
+    return results
+
+if __name__ == "__main__":
+    results = main()
+
+
+
+
+
 
 
 

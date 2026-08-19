@@ -42,9 +42,6 @@ def methodology():
               with a two-sample t-test to gauge statistical significance.
             - **Pipeline**: Data → Log returns → DTW distance matrix → DTW k-means →
               silhouette K-search → regime groups → backtest comparison.
-            - **Optimization (this fast build)**: the K-search runs in parallel, k-means uses
-              fewer restarts, and a bounded Sakoe-Chiba DTW window is applied — identical
-              methodology to `src/`, roughly 30× faster.
             """
         )
 
@@ -185,12 +182,13 @@ def run_live(engine="Fast (~15 min)"):
 with st.sidebar:
     st.header("Data source")
     st.caption("Results come from the latest backtest run saved in `outputs/`.")
-    st.caption("This app uses the **fast** pipeline (`src_fast/`).")
+    st.warning("This app showcases the **original** pipeline (`src/`). Live recomputing can "
+               "take **many hours** — use `dashboard.py` (fast) for live demos.")
     run_now = st.button("Recompute with live engine", width="stretch")
     if run_now:
-        st.caption("Recomputes with the fast engine — ~15 minutes.")
+        st.caption("Recomputes with the original engine — this can take **hours**.")
     st.divider()
-    st.caption("DTW Market Regime Classifier · Fast · 2015–2024")
+    st.caption("DTW Market Regime Classifier · Original · 2015–2024")
 
 # ---------------------------------------------------------------------------
 # Gather the data (live run if requested, otherwise saved files)
@@ -199,7 +197,7 @@ saved = load_saved()
 
 if run_now:
     try:
-        data = run_live("Fast (~15 min)")
+        data = run_live("Original (hours)")
         st.success("Live run complete — showing fresh results.")
     except Exception as exc:
         st.error(f"Live recompute failed: {exc}")
@@ -239,7 +237,7 @@ def sharpe_of(method):
 # Page
 # ---------------------------------------------------------------------------
 st.title("Market Regime Classification")
-st.caption("Fast implementation (`src_fast/`) · DTW clustering of 50 S&P 500 stocks · 2015–2024")
+st.caption("Original implementation (`src/`) · DTW clustering of 50 S&P 500 stocks · 2015–2024")
 
 methodology()
 st.divider()
