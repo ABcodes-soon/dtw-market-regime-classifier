@@ -12,6 +12,8 @@
 ## Table of Contents
 
 - [What This Project Does](#what-this-project-does)
+- [In Plain English](#in-plain-english)
+- [Key Terms](#key-terms)
 - [Two Versions](#two-versions)
 - [Live Demo](#live-demo)
 - [Results at a Glance](#results-at-a-glance)
@@ -35,6 +37,41 @@
 This project groups **50 S&P 500 stocks** by how similarly they move using **Dynamic Time Warping (DTW)** + k-means, finds the optimal number of market **"regimes"** via a **silhouette score**, and backtests the grouping against **Pearson correlation** and an **equal-weight (1/N)** benchmark.
 
 **Key finding:** On this dataset there is **no statistically significant difference** between DTW and Pearson (p = 0.9726). Still, the full research pipeline (data → clustering → backtest → dashboard → tests) was built from scratch, in two versions.
+
+> New to this topic? Start with **In Plain English** below, then check the **Key Terms** glossary.
+
+---
+
+## In Plain English
+
+Stocks don't all move together, and the way they move changes over time. A **market regime** is just a period when the market behaves in a particular way — like weather: sunny (calm, stocks drift up) or stormy (a crash, everything falls together).
+
+This project asks: **can we automatically find those regimes by measuring how similarly stocks move?**
+
+- **DTW** is the measuring stick. It's like comparing two songs played at different speeds — it aligns them in time, so two stocks that follow the same *shape* of movement count as similar even if one runs slightly ahead of the other.
+- **k-means** groups the 50 stocks that move most alike into regimes.
+- **Silhouette score** checks how cleanly the groups are separated.
+- **Backtest** asks whether a portfolio built from those regimes beats simply owning every stock equally (1/N).
+
+**The honest punchline:** the fancy DTW method did **not** beat the simpler Pearson-correlation method on this data (p = 0.97 → no statistical difference). But building the entire pipeline from scratch — and finding that out — is the real project.
+
+---
+
+## Key Terms
+
+| Term | One-line meaning |
+|---|---|
+| **DTW** (Dynamic Time Warping) | Measures how similar two time series are, even if shifted in time (like two songs at different speeds). |
+| **Market regime** | A period when the market behaves in a particular way (calm bull vs. crash). |
+| **k-means** | Groups similar items into K clusters. |
+| **Silhouette score** | -1 to 1; how well separated the clusters are. Higher is better; 0.24 = real but overlapping. |
+| **Pearson correlation** | Standard measure of how two stocks move together, -1 (opposite) to +1 (identical). |
+| **Sharpe ratio** | Return per unit of risk; higher is better. ~0.7–1.1 is solid. |
+| **HRP** (Hierarchical Risk Parity) | Decides how much of each stock to hold, aiming for a well-diversified portfolio. |
+| **PCA** | Shrinks 50 stocks down to 2 axes so they can be plotted on a 2D chart. |
+| **p-value** | Chance the result is luck; below 0.05 is usually "significant." |
+| **1/N (equal weight)** | Benchmark that simply owns every stock equally. |
+| **Stress period** | A short, turbulent time in the market (e.g., COVID crash 2020, rate-shock 2022). |
 
 ---
 
@@ -74,6 +111,8 @@ Each version also has its own dashboard: `streamlit run dashboard_original.py` (
 - **Optimal number of regimes:** 2 (silhouette score: 0.2354)
 - **p-value:** 0.9726 → no significant difference
 - **Stress impact:** one regime group fell ~3.5× harder than the other during the COVID crash
+
+*Sharpe ratios are annualized over the full 2015–2024 period. Silhouette ranges from -1 (bad) to +1 (great); 0.24 means the two regimes are real but overlap somewhat.*
 
 ---
 
