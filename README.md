@@ -1,4 +1,4 @@
-# 📊 DTW Market Regime Classifier
+# DTW Market Regime Classifier
 
 > *"Does Dynamic Time Warping produce more stable market regimes than Pearson correlation?"*
 
@@ -9,10 +9,10 @@
 
 ---
 
-## 📑 Table of Contents
+## Table of Contents
 
-- [TL;DR — What This Project Does](#tldr--what-this-project-does)
-- [Two versions — run either](#two-versions--run-either)
+- [What This Project Does](#what-this-project-does)
+- [Two Versions](#two-versions)
 - [Live Demo](#live-demo)
 - [Results at a Glance](#results-at-a-glance)
 - [Research Question](#research-question)
@@ -30,7 +30,7 @@
 
 ---
 
-## 🎯 TL;DR — What This Project Does
+## What This Project Does
 
 This project groups **50 S&P 500 stocks** by how similarly they move using **Dynamic Time Warping (DTW)** + k-means, finds the optimal number of market **"regimes"** via a **silhouette score**, and backtests the grouping against **Pearson correlation** and an **equal-weight (1/N)** benchmark.
 
@@ -38,7 +38,7 @@ This project groups **50 S&P 500 stocks** by how similarly they move using **Dyn
 
 ---
 
-## ⚡ Two versions — run either
+## Two Versions
 
 The same study ships in **two implementations**, so you can run whichever you prefer:
 
@@ -47,23 +47,23 @@ The same study ships in **two implementations**, so you can run whichever you pr
 | `src/` | **Original** — built from scratch while learning (unbounded DTW, `n_init=10`) | many hours | `python src/backtester.py` |
 | `src_fast/` | **Optimized** — identical methodology, parallel + bounded DTW | ~15 min | `python src_fast/backtester.py` |
 
-> 💡 **Tip:** You don't need to call the backtester files directly. **`python run.py` is the single entry point** — it runs the **fast** pipeline by default, and `python run.py --original` runs the slow one. The table shows exactly which script each one wraps.
+> **Tip:** You don't need to call the backtester files directly. **`python run.py` is the single entry point** — it runs the **fast** pipeline by default, and `python run.py --original` runs the slow one. The table shows exactly which script each one wraps.
 
 Each version also has its own dashboard: `streamlit run dashboard_original.py` (original) or `streamlit run dashboard_fast.py` (fast).
 
 ---
 
-## 🚀 Live Demo
+## Live Demo
 
 [![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://dtw-market-regime-classifier-kjrfaxmnqlqy7vdwfandhg.streamlit.app)
 
-**👉 Live app:** [https://dtw-market-regime-classifier-kjrfaxmnqlqy7vdwfandhg.streamlit.app](https://dtw-market-regime-classifier-kjrfaxmnqlqy7vdwfandhg.streamlit.app)
+**Live app:** [https://dtw-market-regime-classifier-kjrfaxmnqlqy7vdwfandhg.streamlit.app](https://dtw-market-regime-classifier-kjrfaxmnqlqy7vdwfandhg.streamlit.app)
 
-> 🖥️ Prefer to run it on your own machine? See [Quick Start](#quick-start) below.
+> Prefer to run it on your own machine? See [Quick Start](#quick-start) below.
 
 ---
 
-## 📊 Results at a Glance
+## Results at a Glance
 
 | Method | Sharpe Ratio | Volatility | Max Drawdown |
 |--------|--------------|------------|--------------|
@@ -77,7 +77,7 @@ Each version also has its own dashboard: `streamlit run dashboard_original.py` (
 
 ---
 
-## 🔬 Research Question
+## Research Question
 
 > Does DTW distance produce more stable market-regime clusters than Pearson correlation?
 
@@ -91,7 +91,7 @@ Each version also has its own dashboard: `streamlit run dashboard_original.py` (
 
 ---
 
-## 🏗️ Architecture
+## Architecture
 
 ```
 dtw-market-regime-classifier/
@@ -119,7 +119,7 @@ dtw-market-regime-classifier/
 
 ---
 
-## 🚀 Quick Start
+## Quick Start
 
 ```bash
 # Clone (requires Python 3.9+)
@@ -142,7 +142,7 @@ streamlit run dashboard_original.py    # original pipeline
 
 ---
 
-## 📊 Dashboards
+## Dashboards
 
 | Dashboard | Purpose |
 |---|---|
@@ -160,7 +160,7 @@ streamlit run dashboard_original.py    # original pipeline
 
 ---
 
-## 🧪 Testing
+## Testing
 
 ```bash
 pytest tests/ -v
@@ -175,7 +175,7 @@ pytest tests/ -v
 
 ---
 
-## 🧠 Why This Matters
+## Why This Matters
 
 | Problem | My approach |
 |---|---|
@@ -185,7 +185,7 @@ pytest tests/ -v
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 | Category | Tools |
 |---|---|
@@ -199,7 +199,7 @@ pytest tests/ -v
 
 ---
 
-## 📚 Learning Journey
+## Learning Journey
 
 Built after completing:
 
@@ -213,7 +213,7 @@ Built after completing:
 
 ---
 
-## ⚠️ Limitations
+## Limitations
 
 - **Universe:** 50 large-cap U.S. stocks only
 - **Evaluation:** in-sample (2015–2024)
@@ -222,13 +222,13 @@ Built after completing:
 
 ---
 
-## 📬 Contact
+## Contact
 
 **GitHub:** [ABcodes-soon](https://github.com/ABcodes-soon)
 
 ---
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - **Marcos López de Prado** — research foundation
 - **Prof. Xuhu Wan** — HKUST Coursera course
@@ -237,10 +237,10 @@ Built after completing:
 
 ---
 
-## 📄 License
+## License
 
 MIT — feel free to use, modify, and build on this work.
 
 ---
 
-*Built with Python, persistence, and a lot of debugging.* 🚀
+*Built with Python, persistence, and a lot of debugging.*
