@@ -55,9 +55,9 @@ Each version also has its own dashboard: `streamlit run dashboard_original.py` (
 
 ## 🚀 Live Demo
 
-[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://dtw-market-regime-classifier.streamlit.app)
+[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://dtw-market-regime-classifier-kjrfaxmnqlqy7vdwfandhg.streamlit.app)
 
-**👉 Live app:** [https://dtw-market-regime-classifier.streamlit.app](https://dtw-market-regime-classifier.streamlit.app)
+**👉 Live app:** [https://dtw-market-regime-classifier-kjrfaxmnqlqy7vdwfandhg.streamlit.app](https://dtw-market-regime-classifier-kjrfaxmnqlqy7vdwfandhg.streamlit.app)
 
 > If the link isn't live yet, deploy it in ~2 minutes (free):
 
