@@ -32,9 +32,9 @@
 
 ## 🎯 TL;DR — What This Project Does
 
-Groups **50 S&P 500 stocks** by how similarly they move using **Dynamic Time Warping (DTW)** + k-means, finds optimal market **"regimes"** via a **silhouette score**, and backtests the grouping against **Pearson correlation** and an **equal-weight (1/N)** benchmark.
+This project groups **50 S&P 500 stocks** by how similarly they move using **Dynamic Time Warping (DTW)** + k-means, finds the optimal number of market **"regimes"** via a **silhouette score**, and backtests the grouping against **Pearson correlation** and an **equal-weight (1/N)** benchmark.
 
-**Key finding:** On this dataset there is **no statistically significant difference** between DTW and Pearson (p = 0.9726) — but the full research pipeline (data → clustering → backtest → dashboard → tests) was built from scratch, in two versions.
+**Key finding:** On this dataset there is **no statistically significant difference** between DTW and Pearson (p = 0.9726). Still, the full research pipeline (data → clustering → backtest → dashboard → tests) was built from scratch, in two versions.
 
 ---
 
@@ -189,7 +189,7 @@ pytest tests/ -v
 
 ---
 
-## �️ Tech Stack
+## 🛠️ Tech Stack
 
 | Category | Tools |
 |---|---|
@@ -203,7 +203,7 @@ pytest tests/ -v
 
 ---
 
-## �📚 Learning Journey
+## 📚 Learning Journey
 
 Built after completing:
 
