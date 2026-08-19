@@ -129,11 +129,17 @@ cd dtw-market-regime-classifier
 # Install
 pip install -r requirements.txt
 
-# Run the FAST pipeline (~15 min) — the recommended entry point
+# Run the FAST pipeline (~15 min) — the recommended entry point.
+# (under the hood it runs the fast backtester: src_fast/backtester.py)
 python run.py
 
-# ...or the ORIGINAL implementation (many hours — only if you want to wait)
+# ...or the ORIGINAL pipeline (many hours — only if you want to wait).
+# (under the hood it runs the original backtester: src/backtester.py)
 python run.py --original
+
+# Want to call the backtester directly? (same as the two commands above)
+#   python src_fast/backtester.py    # fast
+#   python src/backtester.py         # original
 
 # Launch a dashboard
 streamlit run dashboard_fast.py        # fast pipeline
