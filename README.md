@@ -17,15 +17,37 @@ Groups **50 S&P 500 stocks** by how similarly they move using **Dynamic Time War
 
 ---
 
-## � Live Dashboard Preview
+## ⚡ Two versions — run either
 
-![DTW Market Regime Classifier Dashboard](images/dashboard_screenshot.png)
+The same study ships in **two implementations**, so you can run whichever you prefer:
 
-*Interactive Streamlit dashboard showing key findings, regime selection (silhouette), and cluster composition — run it with `streamlit run dashboard.py`.*
+| Folder | What it is | Runtime | Run it |
+|---|---|---|---|
+| `src/` | **Original** — built from scratch while learning (unbounded DTW, `n_init=10`) | many hours | `python src/backtester.py` |
+| `src_fast/` | **Optimized** — identical methodology, parallel + bounded DTW | ~15 min | `python src_fast/backtester.py` |
+
+Each version also has its own dashboard: `streamlit run dashboard_original.py` (original) or `streamlit run dashboard.py` (fast).
 
 ---
 
-## �📊 Results at a Glance
+## 🚀 Live Demo
+
+[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://dtw-market-regime-classifier.streamlit.app)
+
+**👉 Live app:** [https://dtw-market-regime-classifier.streamlit.app](https://dtw-market-regime-classifier.streamlit.app)
+
+> If the link isn't live yet, deploy it in ~2 minutes (free):
+
+1. The repo is already on GitHub: [`ABcodes-soon/dtw-market-regime-classifier`](https://github.com/ABcodes-soon/dtw-market-regime-classifier).
+2. Go to [share.streamlit.io](https://share.streamlit.io) and sign in with your GitHub account.
+3. Click **New app** → choose this repo → set **Main file** to `dashboard.py` → **Deploy**.
+4. Streamlit gives you a permanent URL — keep it or update the link above.
+
+> 🔧 **Run locally instead:** `streamlit run dashboard.py` → http://localhost:8501
+
+---
+
+## 📊 Results at a Glance
 
 | Method | Sharpe Ratio | Volatility | Max Drawdown |
 |--------|--------------|------------|--------------|
@@ -167,7 +189,6 @@ Built after completing:
 
 ## 📬 Contact
 
-**Author:** Abhinav
 **GitHub:** [ABcodes-soon](https://github.com/ABcodes-soon)
 
 ---
